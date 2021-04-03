@@ -7,7 +7,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Home page</h1>
+        <p>Home page</p>
         <Link to="/profile">Go back to profile</Link>
         <div>
         </div>
