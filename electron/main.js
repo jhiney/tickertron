@@ -13,6 +13,9 @@ function createWindow() {
     const startURL = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`;
  
     mainWindow.loadURL(startURL);
+    
+    //this removes the top bar
+    mainWindow.removeMenu();
  
     mainWindow.once('ready-to-show', () => mainWindow.show());
     mainWindow.on('closed', () => {
