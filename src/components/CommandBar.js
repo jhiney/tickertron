@@ -5,18 +5,19 @@ import {
     FormControl,
     InputGroup
 } from 'react-bootstrap'
+import './style/CommandBar.css'
 
 export default class CommandBar extends React.Component {  
   render() {
     return (
       <div>
-        <Navbar className="bg-dark justify-content-between">
+        <Navbar className="justify-content-center">
             <Form inline>
                 <InputGroup>
                     <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">/</InputGroup.Text>
+                        <InputGroup.Text>/</InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl placeholder="ticker" aria-label="ticker"/>
+                <FormControl placeholder="ticker" aria-label="ticker" id="ticker-add"/>
                 </InputGroup>
             </Form>
         </Navbar>
