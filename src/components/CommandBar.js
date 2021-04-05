@@ -11,7 +11,7 @@ export default class CommandBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar className="justify-content-center">
+        <Navbar className="justify-content-center" >
             <Form inline>
                 <InputGroup>
                     <InputGroup.Prepend>
@@ -25,3 +25,11 @@ export default class CommandBar extends React.Component {
     );
   }
 }
+
+document.addEventListener("keypress", function onPress(event) {
+  if (event.key === "/") {
+    const input = document.getElementById('ticker-add');
+    input.select();
+    event.preventDefault();
+  }
+});
