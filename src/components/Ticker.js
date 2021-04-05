@@ -1,10 +1,13 @@
 import React from "react";
+require('dotenv').config()
+
+
 
 export default class Ticker extends React.Component {  
   render() {
     return (
       <div>
-        <p>Home</p>
+        <p>Hello</p>
       </div>
     );
   }
