@@ -36,8 +36,7 @@ export default class Tickerline extends React.Component {
         <ul style={{ listStyleType: "none" }}>
           <li>Ticker: {this.state.ticker 
           ? this.state.ticker.toUpperCase()
-          :'' }</li>
-          <li>Current Price: {this.state.stockData}</li>
+          :'' } | Current Price: {this.state.stockData}</li>
         </ul>
       </div>
     );
