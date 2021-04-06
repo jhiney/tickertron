@@ -12,7 +12,6 @@ export default class CommandBar extends React.Component {
     super(props)
     this.state = {
         ticker: ''
-        
     }
     //binds the change and submit handlers
     this.handleChange = this.handleChange.bind(this);
@@ -26,12 +25,13 @@ handleChange(event) {
 handleSubmit(event) {
   this.props.tickerCallback(this.state.ticker);
   event.preventDefault();
+  event.target.reset();         
 }
   render() {
     return (
       <div>
         <Navbar className="justify-content-center" >
-            <Form inline onSubmit={this.handleSubmit}> 
+            <Form inline onSubmit={this.handleSubmit} id="tickerForm"> 
                 <FormControl autoComplete="off" placeholder="ticker" aria-label="ticker" id="ticker-bar" value={this.state.value} onChange={this.handleChange} /> 
             </Form>
         </Navbar>
