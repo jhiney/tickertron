@@ -1,4 +1,5 @@
 import React from "react";
+import Tickerline from "./Tickerline";
 require('dotenv').config()
 
 export default class Ticker extends React.Component {  
@@ -9,12 +10,14 @@ export default class Ticker extends React.Component {
   }
 }
   render() {
-    const {data} = this.state;
-    return (
-      
+    return ( 
       <div>
-        {data}
+        <Tickerline tickerToUse = {this.state.data} key={this.state.data}/>
       </div>
     );
   }
 }
+
+
+//EVENTUALLY - This component will be used to house the list of tickers
+//that will be sent and create many different tickerline components - boom
