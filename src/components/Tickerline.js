@@ -13,8 +13,9 @@ export default class Tickerline extends React.Component {
     }
 
     componentDidMount() {
+      //if there is no ticker (by default) then do not fetch
       if(this.state.ticker) {
-      const cs = 'https://finnhub.io/api/v1/quote?symbol='+ this.state.ticker + '&token='+process.env.REACT_APP_MY_KEY;
+      const cs = 'https://finnhub.io/api/v1/quote?symbol='+ this.state.ticker.toUpperCase() + '&token='+process.env.REACT_APP_MY_KEY;
       fetch(cs)
         .then(res =>res.json())
         .then(
@@ -33,7 +34,9 @@ export default class Tickerline extends React.Component {
     return (
       <div>
         <ul style={{ listStyleType: "none" }}>
-          <li>Ticker: {this.state.ticker}</li>
+          <li>Ticker: {this.state.ticker 
+          ? this.state.ticker.toUpperCase()
+          :'' }</li>
           <li>Current Price: {this.state.stockData}</li>
         </ul>
       </div>
