@@ -1,5 +1,5 @@
 {
-  "name": "electron-react-ticker",
+  "name": "tickertron",
   "homepage": "./",
   "main": "./electron/main.js",
   "version": "0.1.0",
