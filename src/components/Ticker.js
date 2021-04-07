@@ -1,23 +1,22 @@
 import React from "react";
 import Tickerline from "./Tickerline";
-require('dotenv').config()
+require("dotenv").config();
 
-export default class Ticker extends React.Component {  
+export default class Ticker extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      data: this.props.dataParentToChild
+      ticker: this.props.dataParentToChild,
+    };
   }
-}
+
   render() {
-    return ( 
+    return (
       <div>
-        <Tickerline tickerToUse = {this.state.data} key={this.state.data}/>
+        {this.props.listofTickers.map((tickers) => {
+          return <Tickerline tickerToUse={tickers} key={tickers} />;
+        })}
       </div>
     );
   }
 }
-
-
-//EVENTUALLY - This component will be used to house the list of tickers
-//that will be sent and create many different tickerline components - boom
