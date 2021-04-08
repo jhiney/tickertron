@@ -11,11 +11,7 @@ export default class App extends React.Component {
       listofTicker: [],
     };
   }
-
-  componentDidMount() {
-    console.log("mounted");
-  }
-
+  
   handleCallback = (commandBarData) => {
     this.setState({ ticker: commandBarData });
     this.state.listofTicker.push(commandBarData);
