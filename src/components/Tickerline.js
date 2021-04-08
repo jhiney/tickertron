@@ -8,7 +8,7 @@ export default class Tickerline extends React.Component {
     super(props);
     this.state = {
       ticker: this.props.tickerToUse,
-      stockData: "",
+      stockPrice: "",
     };
   }
 
@@ -24,9 +24,9 @@ export default class Tickerline extends React.Component {
         .then((res) => res.json())
         .then((result) => {
           this.setState({
-            stockData: result.c,
+            stockPrice: result.c,
           });
-          //console.log(this.state.stockData)
+          //console.log(this.state.stockPrice)
         });
     }
   }
@@ -34,12 +34,7 @@ export default class Tickerline extends React.Component {
   render() {
     return (
       <div>
-        <ul style={{ listStyleType: "none" }}>
-          <li>
-            Ticker: {this.state.ticker ? this.state.ticker.toUpperCase() : ""} |
-            Current Price: {this.state.stockData}
-          </li>
-        </ul>
+        <p> Ticker: {this.state.ticker ? this.state.ticker.toUpperCase() : ""} | Current Price: {this.state.stockPrice} </p>
       </div>
     );
   }
