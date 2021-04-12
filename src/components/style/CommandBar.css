@@ -1,8 +1,27 @@
 #ticker-add{
-    background-color:rgb(24, 26, 33);
-    color:white;
+    background-color:rgb(30, 30, 30);
+    
 }
 
 .navbar{
-    background-color:rgb(24, 26, 33);
-  }
+    background-color:rgb(30, 30, 30);
+}
+
+
+
+.form-control{
+    background-color: transparent;
+    border: transparent;
+    outline-width: 0px;
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+}
+
+.form-control:focus{
+    background-color:transparent;
+    color:white;
+    box-shadow: none;
+    
+ }
