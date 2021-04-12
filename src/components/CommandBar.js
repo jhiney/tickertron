@@ -30,9 +30,9 @@ handleSubmit(event) {
   render() {
     return (
       <div>
-        <Navbar className="justify-content-center" >
+        <Navbar>
             <Form inline onSubmit={this.handleSubmit} id="tickerForm"> 
-                <FormControl autoComplete="off" placeholder="ticker" aria-label="ticker" id="ticker-bar" value={this.state.value} onChange={this.handleChange} /> 
+                <FormControl autoComplete="off" placeholder="/tickertron" aria-label="ticker" id="ticker-bar" value={this.state.value} onChange={this.handleChange} /> 
             </Form>
         </Navbar>
       </div>
@@ -46,4 +46,5 @@ document.addEventListener("keypress", function onPress(event) {
     input.select();
     event.preventDefault();
   }
+  
 });
