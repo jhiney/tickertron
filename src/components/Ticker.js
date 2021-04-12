@@ -1,5 +1,6 @@
 import React from "react";
 import Tickerline from "./Tickerline";
+import './style/Ticker.css'
 require("dotenv").config();
 
 export default class Ticker extends React.Component {
@@ -12,7 +13,7 @@ export default class Ticker extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="tickerContainer">
         {this.props.listofTickers.map((tickers) => {
           return <Tickerline tickerToUse={tickers} key={tickers} />;
         })}

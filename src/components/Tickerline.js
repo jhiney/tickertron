@@ -33,7 +33,7 @@ export default class Tickerline extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="tickerline">
         <p> Ticker: {this.state.ticker ? this.state.ticker.toUpperCase() : ""} | Current Price: {this.state.stockPrice} </p>
       </div>
     );
