@@ -60,8 +60,10 @@ export default class Tickerline extends React.Component {
   render() {
     return (
       <div className="tickerline">
-        <Row xs={2} md={2} lg={2}>
+        <Row xs={4} md={4} lg={4}>
           <Col>{this.state.ticker.toUpperCase()}</Col>
+          <Col style={{ color: "white" }}>{this.state.stockName}</Col>
+          <Col style={{ color: "white" }}>${this.state.stockPC}</Col>
           <Col
             style={
               this.state.stockPC < this.state.stockPrice
@@ -71,10 +73,6 @@ export default class Tickerline extends React.Component {
           >
             ${this.state.stockPrice}
           </Col>
-        </Row>
-        <Row xs={2} md={2} lg={2}>
-          <Col style={{ color: "gray" }}>{this.state.stockName}</Col>
-          <Col style={{ color: "gray" }}> PC ${this.state.stockPC}</Col>
         </Row>
       </div>
     );
