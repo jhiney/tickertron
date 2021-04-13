@@ -45,6 +45,6 @@ document.addEventListener("keypress", function onPress(event) {
     const input = document.getElementById('ticker-bar');
     input.select();
     event.preventDefault();
-  }
-  
+  } 
 });
+
