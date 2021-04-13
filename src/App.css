@@ -1,8 +1,9 @@
 .App {
   text-align: left;
   color: white;
+  font-size: 200%;
+  /* font-size: 500%; - for the really zoomed in version*/
 }
-
 
 .App-logo {
   height: 40vmin;
