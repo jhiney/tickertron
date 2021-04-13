@@ -15,7 +15,7 @@ export default class Ticker extends React.Component {
   render() {
     return (
       <div className="tickerContainer">
-        <Row xs={4} md={4} lg={4}>
+        <Row xs={1} md={2} lg={4}>
           <Col style={{ color: "gray" }}>Ticker</Col>
           <Col style={{ color: "gray" }}>Company</Col>
           <Col style={{ color: "gray" }}>Previous Close</Col>
