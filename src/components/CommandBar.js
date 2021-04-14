@@ -29,7 +29,7 @@ handleSubmit(event) {
 }
   render() {
     return (
-      <div>
+      <div className="commandBar">
         <Navbar>
             <Form inline onSubmit={this.handleSubmit} id="tickerForm"> 
                 <FormControl autoComplete="off" placeholder="/tickertron" aria-label="ticker" id="ticker-bar" value={this.state.value} onChange={this.handleChange} /> 
