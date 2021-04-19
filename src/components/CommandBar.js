@@ -30,7 +30,7 @@ handleSubmit(event) {
   render() {
     return (
       <div className="commandBar">
-        <Navbar>
+        <Navbar fixed="top">
             <Form inline onSubmit={this.handleSubmit} id="tickerForm"> 
                 <FormControl autoComplete="off" placeholder="/tickertron" aria-label="ticker" id="ticker-bar" value={this.state.value} onChange={this.handleChange} /> 
             </Form>
@@ -47,4 +47,3 @@ document.addEventListener("keypress", function onPress(event) {
     event.preventDefault();
   } 
 });
-
