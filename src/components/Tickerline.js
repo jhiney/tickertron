@@ -58,7 +58,7 @@ export default class Tickerline extends React.Component {
   }
 
   render() {
-    const PL = (((this.state.stockPrice / this.state.stockPC) - 1) * 100).toFixed(2);
+    const PL = Math.abs((((this.state.stockPrice / this.state.stockPC) - 1) * 100).toFixed(2));
     return (
       <div className="tickerline">
         <Row xs={1} md={2} lg={5}>
@@ -74,10 +74,10 @@ export default class Tickerline extends React.Component {
             ${this.state.stockPrice}
           </Col>
           <Col  style={
-              PL > 0
+              this.state.stockPC < this.state.stockPrice
                 ? { color: "forestgreen" }
                 : { color: "darkred" }
-            }>{PL}</Col>
+            }>{PL}%</Col>
           <Col style={{ color: "white" }}>${this.state.stockPC}</Col>
         </Row>
       </div>
