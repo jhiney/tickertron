@@ -13,6 +13,7 @@ export default class Tickerline extends React.Component {
       stockPrice: "",
       stockName: "",
       stockPC: "",
+      allTickers: this.props.allTickers,
     };
   }
 
@@ -34,36 +35,37 @@ export default class Tickerline extends React.Component {
         });
     }
   }
-  getName(ticker) {
+  getName(ticker, tickerlist) {
     //if there is no ticker (by default) then do not fetch
-    if (ticker) {
-      const cs =
-        "https://finnhub.io/api/v1/stock/profile2?symbol=" +
-        ticker.toUpperCase() +
-        "&token=" +
-        process.env.REACT_APP_MY_KEY;
-      fetch(cs)
-        .then((res) => res.json())
-        .then((result) => {
-          this.setState({
-            stockName: result.name,
-          });
+    for (var i = 0; i < tickerlist.length; i++) {
+      if (tickerlist[i].displaySymbol === ticker.toUpperCase()) {
+        this.setState({
+          stockName: tickerlist[i].description,
         });
+      }
     }
   }
 
   componentDidMount() {
     this.getPrice(this.state.ticker);
-    this.getName(this.state.ticker);
+    this.getName(this.state.ticker, this.state.allTickers);
   }
 
   render() {
-    const PL = Math.abs((((this.state.stockPrice / this.state.stockPC) - 1) * 100).toFixed(2));
+    const PL = Math.abs(
+      ((this.state.stockPrice / this.state.stockPC - 1) * 100).toFixed(2)
+    );
     return (
       <div className="tickerline">
         <Row xs={1} md={2} lg={5}>
           <Col>{this.state.ticker.toUpperCase()}</Col>
-          <Col /*onClick={() => { console.log("test"}} -> Reserved for future use*/ style={{ color: "white" }}>{this.state.stockName}</Col>
+          <Col
+            /*onClick={() => { console.log("test"}} -> Reserved for future use*/ style={{
+              color: "white",
+            }}
+          >
+            {this.state.stockName}
+          </Col>
           <Col
             style={
               this.state.stockPC < this.state.stockPrice
@@ -73,11 +75,15 @@ export default class Tickerline extends React.Component {
           >
             ${this.state.stockPrice}
           </Col>
-          <Col  style={
+          <Col
+            style={
               this.state.stockPC < this.state.stockPrice
                 ? { color: "forestgreen" }
                 : { color: "darkred" }
-            }>{PL}%</Col>
+            }
+          >
+            {PL}%
+          </Col>
           <Col style={{ color: "white" }}>${this.state.stockPC}</Col>
         </Row>
       </div>
