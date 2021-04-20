@@ -5,57 +5,64 @@ import "./style/Ticker.css";
 require("dotenv").config();
 
 export default class Ticker extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      allTickers: {},
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			allTickers: {},
+			tickersLoaded: false
+		};
+	}
 
-  renderHeader() {
-    return (
-      <Row xs={1} md={2} lg={5}>
-        <Col style={{ color: "gray" }}>Ticker</Col>
-        <Col style={{ color: "gray" }}>Company</Col>
-        <Col style={{ color: "gray" }}>Mark</Col>
-        <Col style={{ color: "gray" }}>% G/L</Col>
-        <Col style={{ color: "gray" }}>Previous Close</Col>
-      </Row>
-    );
-  }
+	renderHeader() {
+		return (
+			<Row xs={1} md={2} lg={2}>
+				<Col xl={2} style={{ color: "gray" }}>
+					Ticker
+				</Col>
+				<Col xl={4} style={{ color: "gray" }}>
+					Company
+				</Col>
+				<Col xl={2} style={{ color: "gray" }}>
+					Mark
+				</Col>
+				<Col xl={2} style={{ color: "gray" }}>
+					% G/L
+				</Col>
+				<Col xl={2} style={{ color: "gray" }}>
+					Previous Close
+				</Col>
+			</Row>
+		);
+	}
 
-  grabAllTickers() {
-    const cs =
-      "https://finnhub.io/api/v1/stock/symbol?exchange=US&token=" +
-      process.env.REACT_APP_MY_KEY;
-    fetch(cs)
-      .then((res) => res.json())
-      .then((result) => {
-        this.setState({
-          allTickers: result
-        });
-      });
-    
-  }
+	async grabAllTickers() {
+		const cs =
+			"https://finnhub.io/api/v1/stock/symbol?exchange=US&token=" + process.env.REACT_APP_MY_KEY;
+		await fetch(cs)
+			.then((res) => res.json())
+			.then((result) => {
+				this.setState({
+					allTickers: result,
+					//sets tickersLoaded to true when the inital fetch has completed
+					tickersLoaded: true
+				});
+			});
+	}
 
-  componentDidMount() {
-    this.grabAllTickers();
-  }
+	async componentDidMount() {
+		await this.grabAllTickers();
+	}
 
-  render() {
-    return (
-      <div className="tickerContainer">
-        {this.renderHeader()}
-        {this.props.listofTickers.map((tickers) => {
-          return (
-            <Tickerline
-              tickerToUse={tickers}
-              key={tickers}
-              allTickers={this.state.allTickers}
-            />
-          );
-        })}
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="tickerContainer">
+				{this.state.tickersLoaded ? this.renderHeader() : ""}
+				{this.props.listofTickers.map((tickers) => {
+					return (
+						<Tickerline tickerToUse={tickers} key={tickers} allTickers={this.state.allTickers} />
+					);
+				})}
+			</div>
+		);
+	}
 }
