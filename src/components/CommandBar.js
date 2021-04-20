@@ -25,7 +25,9 @@ handleChange(event) {
 handleSubmit(event) {
   this.props.tickerCallback(this.state.ticker);
   event.preventDefault();
-  event.target.reset();         
+  event.target.reset();
+  //reset the state
+  this.setState({ticker:''})         
 }
   render() {
     return (
