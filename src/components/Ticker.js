@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Spinner } from "react-bootstrap";
 import Tickerline from "./Tickerline";
 import "./style/Ticker.css";
 require("dotenv").config();
@@ -35,6 +35,14 @@ export default class Ticker extends React.Component {
 		);
 	}
 
+	loading() {
+		return (
+			<Spinner animation="border" role="status">
+				<span className="sr-only">Loading...</span>
+			</Spinner>
+		);
+	}
+
 	async grabAllTickers() {
 		const cs =
 			"https://finnhub.io/api/v1/stock/symbol?exchange=US&token=" + process.env.REACT_APP_MY_KEY;
@@ -56,7 +64,7 @@ export default class Ticker extends React.Component {
 	render() {
 		return (
 			<div className="tickerContainer">
-				{this.state.tickersLoaded ? this.renderHeader() : ""}
+				{this.state.tickersLoaded ? this.renderHeader() : this.loading()}
 				{this.props.listofTickers.map((tickers) => {
 					return (
 						<Tickerline tickerToUse={tickers} key={tickers} allTickers={this.state.allTickers} />
