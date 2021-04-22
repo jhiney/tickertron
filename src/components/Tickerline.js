@@ -55,7 +55,7 @@ export default class Tickerline extends React.Component {
 		const PL = Math.abs(((this.state.stockPrice / this.state.stockPC - 1) * 100).toFixed(2));
 		return (
 			<div className="tickerline">
-				<Card body>
+				<Card>
 					<Row xs={1} md={2} lg={2} xl={5}>
 						<Col xl={2}>{this.state.ticker.toUpperCase()}</Col>
 

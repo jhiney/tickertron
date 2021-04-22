@@ -10,5 +10,6 @@
 .card {
     background-color: transparent;
     border-width: 1px;
-    border-color: grey;
+    border-color: rgba(128, 128, 128, 0.247);
+    padding: .3rem;
 }
