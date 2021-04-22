@@ -36,7 +36,9 @@ export default class Tickerline extends React.Component {
 		}
 	}
 	getName(ticker, tickerlist) {
-		//if there is no ticker (by default) then do not fetch
+		/*I chose to use a for loop rather than forEach because it is simple incrementing and matching
+		and a forEach would be much more overhead and slow down the search. After all, this change was made
+		because finding the company name was taking too long */
 		for (var i = 0; i < tickerlist.length; i++) {
 			if (tickerlist[i].displaySymbol === ticker.toUpperCase()) {
 				this.setState({
