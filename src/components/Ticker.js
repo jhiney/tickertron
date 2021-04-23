@@ -43,10 +43,10 @@ export default class Ticker extends React.Component {
 				<Col xl={2} style={{ color: "gray" }}>
 					Ticker
 				</Col>
-				<Col xl={4} style={{ color: "gray" }}>
+				<Col xl={3} style={{ color: "gray" }}>
 					Company
 				</Col>
-				<Col xl={2} style={{ color: "gray" }}>
+				<Col xl={3} style={{ color: "gray" }}>
 					Mark
 				</Col>
 				<Col xl={2} style={{ color: "gray" }}>
@@ -78,7 +78,6 @@ export default class Ticker extends React.Component {
 
 	async componentDidMount() {
 		await this.grabAllTickers();
-		console.log(this.state)
 	}
 
 	render() {
