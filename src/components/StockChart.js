@@ -41,25 +41,26 @@ export default class StockChart extends Component {
 	}
 
 	async getRealTime(timestamps) {
-		for (var i = 0; i < timestamps.length; i++) {
-			var date = new Date(timestamps[i] * 1000);
-			var dateObject = new Date(date);
-			var humanDateFormat = dateObject.toLocaleTimeString([], {
-				hour: "2-digit",
-				minute: "2-digit"
-			});
-			this.state.realTimes.push(humanDateFormat);
-		}
+		try {
+			for (var i = 0; i < timestamps.length; i++) {
+				var date = new Date(timestamps[i] * 1000);
+				var dateObject = new Date(date);
+				var humanDateFormat = dateObject.toLocaleTimeString([], {
+					hour: "2-digit",
+					minute: "2-digit"
+				});
+				this.state.realTimes.push(humanDateFormat);
+			}
 
-		this.setState({
-			loading: false
-		});
+			this.setState({
+				loading: false
+			});
+		} catch (error) {}
 	}
 
 	async componentDidMount() {
 		await this.getData(this.state.ticker, this.state.todayStart, this.state.currentTime);
 		await this.getRealTime(this.state.associatedTimestamp);
-		console.log(this.state);
 	}
 
 	render() {
@@ -78,7 +79,11 @@ export default class StockChart extends Component {
 		};
 
 		const options = {
-			
+			plugins: {
+				legend: {
+					display: false
+				}
+			},
 			scales: {
 				yAxis: {
 					beginAtZero: false,
@@ -88,11 +93,14 @@ export default class StockChart extends Component {
 						lineWidth: 1
 					},
 					ticks: {
-						color: "rgb(255, 255, 255)"
+						color: "rgb(255, 255, 255)",
+						callback: function (value) {
+							return "$" + value;
+						}
 					}
 				},
 				xAxis: {
-					beginAtZero: false, 
+					beginAtZero: false,
 
 					grid: {
 						color: "white",
@@ -109,7 +117,7 @@ export default class StockChart extends Component {
 				{this.state.loading ? (
 					<Loading />
 				) : (
-					<Line data={data} options={options} width={600} height={160} />
+					<Line data={data} options={options} width={600} height={100} />
 				)}
 			</div>
 		);
