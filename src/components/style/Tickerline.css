@@ -1,23 +1,23 @@
-.tickerline{
-    padding: 0px;
+.tickerline {
+	padding: 0px;
 }
 
-.navbar{
-    padding-left: 5px;
-    padding-bottom: 5px;
+.navbar {
+	padding-left: 5px;
+	padding-bottom: 5px;
 }
 
 .card {
-    background-color: transparent;
-    border-width: 1px;
-    border-color: rgba(128, 128, 128, 0.247);
-    padding: .3rem;
+	background-color: transparent;
+	border-width: 1px;
+	border-color: rgba(128, 128, 128, 0.2);
 }
 
-
 .card-body {
-    background-color: transparent;
-    border-width: 1px;
-    border-color: transparent;
-    padding: .5rem;
+	background-color: transparent;
+	padding: 0.5rem;
+}
+
+canvas {
+	padding: 0.2rem;
 }
