@@ -1,7 +1,8 @@
 import React from "react";
-import { Col, Row, Spinner } from "react-bootstrap";
+import { Col, Row} from "react-bootstrap";
 import Tickerline from "./Tickerline";
 import "./style/Ticker.css";
+import Loading from "./Loading";
 require("dotenv").config();
 
 export default class Ticker extends React.Component {
@@ -9,8 +10,31 @@ export default class Ticker extends React.Component {
 		super(props);
 		this.state = {
 			allTickers: {},
-			tickersLoaded: false
+			tickersLoaded: false,
+			todayStart: "",
+			currentTime: ""
 		};
+	}
+
+	getToday() {
+		var d = new Date();
+		d.setDate(d.getDate());
+		d.setHours(8, 30, 1, 0);
+
+		var unix = Math.floor(d.getTime() / 1000);
+
+		this.setState({
+			todayStart: unix
+		});
+	}
+
+	getCurrentTime() {
+		var d = new Date();
+		var unix = Math.floor(d.getTime() / 1000);
+
+		this.setState({
+			currentTime: unix
+		});
 	}
 
 	renderHeader() {
@@ -35,14 +59,6 @@ export default class Ticker extends React.Component {
 		);
 	}
 
-	loading() {
-		return (
-			<Spinner animation="border" role="status">
-				<span className="sr-only">Loading...</span>
-			</Spinner>
-		);
-	}
-
 	async grabAllTickers() {
 		const cs =
 			"https://finnhub.io/api/v1/stock/symbol?exchange=US&token=" + process.env.REACT_APP_MY_KEY;
@@ -55,19 +71,29 @@ export default class Ticker extends React.Component {
 					tickersLoaded: true
 				});
 			});
+			this.getCurrentTime();
+			this.getToday();
+			
 	}
 
 	async componentDidMount() {
 		await this.grabAllTickers();
+		console.log(this.state)
 	}
 
 	render() {
 		return (
 			<div className="tickerContainer">
-				{this.state.tickersLoaded ? this.renderHeader() : this.loading()}
+				{this.state.tickersLoaded ? this.renderHeader() : <Loading />}
 				{this.props.listofTickers.map((tickers) => {
 					return (
-						<Tickerline tickerToUse={tickers} key={tickers} allTickers={this.state.allTickers} />
+						<Tickerline
+							tickerToUse={tickers}
+							key={tickers}
+							allTickers={this.state.allTickers}
+							todayStart={this.state.todayStart}
+							currentTime={this.state.currentTime}
+						/>
 					);
 				})}
 			</div>

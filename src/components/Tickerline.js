@@ -1,5 +1,6 @@
 import React from "react";
-import { Card, Col, Row } from "react-bootstrap";
+import { Card, Col, Row, Accordion } from "react-bootstrap";
+import StockChart from "./StockChart";
 import "./style/Tickerline.css";
 require("dotenv").config();
 
@@ -13,12 +14,14 @@ export default class Tickerline extends React.Component {
 			stockPrice: "",
 			stockName: "",
 			stockPC: "",
-			allTickers: this.props.allTickers
+			allTickers: this.props.allTickers,
+			todayStart: this.props.todayStart,
+			currentTime: this.props.currentTime
 		};
 	}
 
 	getPrice(ticker) {
-		//if there is no ticker (by default) then do not fetch
+		//if there is no ticker (which is the default) then do not fetch
 		if (ticker) {
 			const cs =
 				"https://finnhub.io/api/v1/quote?symbol=" +
@@ -57,39 +60,50 @@ export default class Tickerline extends React.Component {
 		const PL = Math.abs(((this.state.stockPrice / this.state.stockPC - 1) * 100).toFixed(2));
 		return (
 			<div className="tickerline">
-				<Card>
-					<Row xs={1} md={2} lg={2} xl={5}>
-						<Col xl={2}>{this.state.ticker.toUpperCase()}</Col>
+				<Accordion>
+					<Card>
+						<Accordion.Toggle as={Card.Body} eventKey="1">
+							<Row xs={1} md={2} lg={2} xl={5}>
+								<Col xl={2}>{this.state.ticker.toUpperCase()}</Col>
 
-						<Col xl={4} style={{ color: "white" }}>
-							{this.state.stockName}
-						</Col>
+								<Col xl={4} style={{ color: "white" }}>
+									{this.state.stockName}
+								</Col>
 
-						<Col
-							xl={2}
-							style={
-								this.state.stockPC < this.state.stockPrice
-									? { color: "forestgreen" }
-									: { color: "darkred" }
-							}>
-							${this.state.stockPrice}
-						</Col>
+								<Col
+									xl={2}
+									style={
+										this.state.stockPC < this.state.stockPrice
+											? { color: "forestgreen" }
+											: { color: "darkred" }
+									}>
+									${this.state.stockPrice}
+								</Col>
 
-						<Col
-							xl={2}
-							style={
-								this.state.stockPC < this.state.stockPrice
-									? { color: "forestgreen" }
-									: { color: "darkred" }
-							}>
-							{PL}%
-						</Col>
+								<Col
+									xl={2}
+									style={
+										this.state.stockPC < this.state.stockPrice
+											? { color: "forestgreen" }
+											: { color: "darkred" }
+									}>
+									{PL}%
+								</Col>
 
-						<Col xl={2} style={{ color: "white" }}>
-							${this.state.stockPC}
-						</Col>
-					</Row>
-				</Card>
+								<Col xl={2} style={{ color: "white" }}>
+									${this.state.stockPC}
+								</Col>
+							</Row>
+						</Accordion.Toggle>
+						<Accordion.Collapse eventKey="1">
+							<StockChart
+								tickerToUse={this.state.ticker}
+								todayStart={this.state.todayStart}
+								currentTime={this.state.currentTime}
+							/>
+						</Accordion.Collapse>
+					</Card>
+				</Accordion>
 			</div>
 		);
 	}
