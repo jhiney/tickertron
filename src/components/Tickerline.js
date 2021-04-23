@@ -20,7 +20,7 @@ export default class Tickerline extends React.Component {
 		};
 	}
 
-	getPrice(ticker) {
+	async getPrice(ticker) {
 		//if there is no ticker (which is the default) then do not fetch
 		if (ticker) {
 			const cs =
@@ -38,7 +38,7 @@ export default class Tickerline extends React.Component {
 				});
 		}
 	}
-	getName(ticker, tickerlist) {
+	async getName(ticker, tickerlist) {
 		/*I chose to use a for loop rather than forEach because it is simple incrementing and matching
 		and a forEach would be much more overhead and slow down the search. After all, this change was made
 		because finding the company name was taking too long */
@@ -49,11 +49,17 @@ export default class Tickerline extends React.Component {
 				});
 			}
 		}
+		//if nothing comes up in the ticker search - say it isn't real
+		if (this.state.stockName === "") {
+			this.setState({
+				stockName: "Not Real"
+			});
+		}
 	}
 
-	componentDidMount() {
-		this.getPrice(this.state.ticker);
-		this.getName(this.state.ticker, this.state.allTickers);
+	async componentDidMount() {
+		await this.getPrice(this.state.ticker);
+		await this.getName(this.state.ticker, this.state.allTickers);
 	}
 
 	render() {
@@ -63,15 +69,15 @@ export default class Tickerline extends React.Component {
 				<Accordion>
 					<Card>
 						<Accordion.Toggle as={Card.Body} eventKey="1">
-							<Row xs={1} md={2} lg={2} xl={5}>
+							<Row xs={1} md={2} lg={2}>
 								<Col xl={2}>{this.state.ticker.toUpperCase()}</Col>
 
-								<Col xl={4} style={{ color: "white" }}>
+								<Col xl={3} style={{ color: "white" }}>
 									{this.state.stockName}
 								</Col>
 
 								<Col
-									xl={2}
+									xl={3}
 									style={
 										this.state.stockPC < this.state.stockPrice
 											? { color: "forestgreen" }
@@ -108,5 +114,3 @@ export default class Tickerline extends React.Component {
 		);
 	}
 }
-
-/*onClick={() => { console.log("test"}} -> Reserved for future use*/
