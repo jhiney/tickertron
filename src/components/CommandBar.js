@@ -25,10 +25,12 @@ function CommandBar(props) {
 				<Form inline onSubmit={handleSubmit} id="tickerForm">
 					<FormControl
 						autoComplete="off"
+            autoCorrect="off" 
+            spellCheck="false"
 						placeholder="/tickertron"
 						aria-label="ticker"
 						id="ticker-bar"
-						value={ticker.ticker}
+						value={ticker.value}
 						onChange={handleChange}
 					/>
 				</Form>
