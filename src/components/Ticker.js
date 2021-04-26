@@ -6,10 +6,10 @@ import Loading from "./Loading";
 require("dotenv").config();
 
 function Ticker(props) {
-	const [allTickers, setallTickers] = useState("");
+	const [allTickers, setallTickers] = useState();
 	const [tickersLoaded, settickersLoaded] = useState(false);
-	const [todayStart, settodayStart] = useState("");
-	const [currentTime, setcurrentTime] = useState("");
+	const [todayStart, settodayStart] = useState();
+	const [currentTime, setcurrentTime] = useState();
 
 	const getToday = () => {
 		var d = new Date();
@@ -32,22 +32,21 @@ function Ticker(props) {
 		});
 	};
 
-	const grabAllTickers = () => {
-		const cs =
-			"https://finnhub.io/api/v1/stock/symbol?exchange=US&token=" + process.env.REACT_APP_MY_KEY;
-		fetch(cs)
-			.then((res) => res.json())
-			.then((result) => {
-				setallTickers({ allTickers: result });
-				settickersLoaded({ tickersLoaded: true });
-			});
-		getCurrentTime();
-		getToday();
-	};
-
 	useEffect(() => {
+		const grabAllTickers = async () => {
+			const cs =
+				"https://finnhub.io/api/v1/stock/symbol?exchange=US&token=" + process.env.REACT_APP_MY_KEY;
+			await fetch(cs)
+				.then((res) => res.json())
+				.then((result) => {
+					setallTickers({ allTickers: result });
+					settickersLoaded({ tickersLoaded: true });
+				});
+			getCurrentTime();
+			getToday();
+		};
+
 		grabAllTickers();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const renderHeader = () => {
