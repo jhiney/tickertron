@@ -1,51 +1,47 @@
-import React from "react";
-import {
-    Navbar,
-    Form,
-    FormControl
-} from 'react-bootstrap'
-import './style/CommandBar.css'
+import { React, useState } from "react";
+import { Navbar, Form, FormControl } from "react-bootstrap";
+import "./style/CommandBar.css";
 
-export default class CommandBar extends React.Component {  
+function CommandBar(props) {
+	const [ticker, setTicker] = useState("");
 
-  constructor(props) {
-    super(props)
-    this.state = {
-        ticker: ''
-    }
-    //binds the change and submit handlers
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+	const handleChange = (event) => {
+		setTicker({ ticker: event.target.value });
+	};
+
+	const handleSubmit = (event) => {
+		//as opposed to the class, the tickerCallback passes a ticker object instead of the string value.
+		//We handle this in App.js by grabbing only what we need.
+		props.tickerCallback(ticker);
+		event.preventDefault();
+		event.target.reset();
+		//reset the state
+		setTicker({ ticker: "" });
+	};
+
+	return (
+		<div className="commandBar">
+			<Navbar>
+				<Form inline onSubmit={handleSubmit} id="tickerForm">
+					<FormControl
+						autoComplete="off"
+						placeholder="/tickertron"
+						aria-label="ticker"
+						id="ticker-bar"
+						value={ticker.ticker}
+						onChange={handleChange}
+					/>
+				</Form>
+			</Navbar>
+		</div>
+	);
 }
-
-handleChange(event) {
-    this.setState({ ticker: event.target.value });
-}
-
-handleSubmit(event) {
-  this.props.tickerCallback(this.state.ticker);
-  event.preventDefault();
-  event.target.reset();
-  //reset the state
-  this.setState({ticker:''})         
-}
-  render() {
-    return (
-      <div className="commandBar">
-        <Navbar>
-            <Form inline onSubmit={this.handleSubmit} id="tickerForm"> 
-                <FormControl autoComplete="off" placeholder="/tickertron" aria-label="ticker" id="ticker-bar" value={this.state.value} onChange={this.handleChange} /> 
-            </Form>
-        </Navbar>
-      </div>
-    );
-  }
-}
-
 document.addEventListener("keypress", function onPress(event) {
-  if (event.key === "/") {
-    const input = document.getElementById('ticker-bar');
-    input.select();
-    event.preventDefault();
-  } 
+	if (event.key === "/") {
+		const input = document.getElementById("ticker-bar");
+		input.select();
+		event.preventDefault();
+	}
 });
+
+export default CommandBar;
