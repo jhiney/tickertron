@@ -10,8 +10,8 @@ function CommandBar(props) {
 	};
 
 	const handleSubmit = (event) => {
-		//as opposed to the class, the tickerCallback passes a ticker object instead of the string value.
-		//We handle this in App.js by grabbing only what we need.
+    //as opposed to the class, the tickerCallback passes a ticker object instead of the string value.
+    //We handle this in App.js by grabbing only what we need.
 		props.tickerCallback(ticker);
 		event.preventDefault();
 		event.target.reset();
