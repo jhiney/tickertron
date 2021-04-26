@@ -3,8 +3,7 @@ import { Navbar } from "react-bootstrap";
 import './style/FooterBar.css'
 import ghLogo from "./img/github-logo-32.png";
 
-export default class FooterBar extends React.Component {
-  render() {
+function Footerbar(){
     return (
       <div>
         <Navbar fixed="bottom" className="justify-content-end">
@@ -20,5 +19,6 @@ export default class FooterBar extends React.Component {
         </Navbar>
       </div>
     );
-  }
 }
+
+export default Footerbar;
