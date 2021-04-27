@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 import Loading from "./Loading";
+import "./style/Tickerline.css";
 
 export default class StockChart extends Component {
 	static displayName = StockChart.name;
@@ -73,7 +74,7 @@ export default class StockChart extends Component {
 					fill: false,
 					backgroundColor: "rgb(34, 139, 34)",
 					borderColor: "rgb(34, 139, 34)",
-					tension: 0.2
+					tension: 0.1
 				}
 			]
 		};
@@ -89,11 +90,11 @@ export default class StockChart extends Component {
 					beginAtZero: false,
 
 					grid: {
-						color: "rgb(255, 255, 255)",
+						color: "transparent",
 						lineWidth: 1
 					},
 					ticks: {
-						color: "rgb(255, 255, 255)",
+						color: "rgb(190, 190, 190)",
 						callback: function (value) {
 							return "$" + value;
 						}
@@ -103,11 +104,11 @@ export default class StockChart extends Component {
 					beginAtZero: false,
 
 					grid: {
-						color: "white",
+						color: "transparent",
 						lineWidth: 1
 					},
 					ticks: {
-						color: "rgb(255, 255, 255)"
+						color: "rgb(190, 190, 190)"
 					}
 				}
 			}
@@ -118,7 +119,8 @@ export default class StockChart extends Component {
 					<Loading />
 				) : (
 					<Line data={data} options={options} width={600} height={100} />
-				)}
+					
+				)}<hr />
 			</div>
 		);
 	}
