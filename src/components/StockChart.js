@@ -119,8 +119,8 @@ export default class StockChart extends Component {
 					<Loading />
 				) : (
 					<Line data={data} options={options} width={600} height={100} />
-					
-				)}<hr />
+				)}
+				<hr />
 			</div>
 		);
 	}
