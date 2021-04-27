@@ -10,14 +10,21 @@
 .card {
 	background-color: transparent;
 	border-width: 1px;
-	border-color: rgba(128, 128, 128, 0.2);
+	border-color: transparent;
 }
 
 .card-body {
 	background-color: transparent;
-	padding: 0.5rem;
+	padding: 0.1rem;
 }
 
 canvas {
-	padding: 0.2rem;
+	padding-top: 4px;
+}
+
+hr {
+	max-width: 100%;
+	width: auto;
+	margin: 0%;
+	background-color: rgb(128, 128, 128);
 }

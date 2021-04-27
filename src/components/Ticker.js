@@ -52,10 +52,10 @@ function Ticker(props) {
 	const renderHeader = () => {
 		return (
 			<Row xs={1} md={2} lg={2}>
-				<Col xl={2} style={{ color: "gray" }}>
+				<Col xl={1} style={{ color: "gray" }}>
 					Ticker
 				</Col>
-				<Col xl={3} style={{ color: "gray" }}>
+				<Col xl={4} style={{ color: "gray" }}>
 					Company
 				</Col>
 				<Col xl={3} style={{ color: "gray" }}>

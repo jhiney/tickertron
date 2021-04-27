@@ -70,9 +70,9 @@ export default class Tickerline extends React.Component {
 					<Card>
 						<Accordion.Toggle as={Card.Body} eventKey="1">
 							<Row xs={1} md={2} lg={2}>
-								<Col xl={2}>{this.state.ticker.toUpperCase()}</Col>
+								<Col xl={1}>{this.state.ticker.toUpperCase()}</Col>
 
-								<Col xl={3} style={{ color: "white" }}>
+								<Col xl={4} style={{ color: "white" }}>
 									{this.state.stockName}
 								</Col>
 
@@ -100,6 +100,7 @@ export default class Tickerline extends React.Component {
 									${this.state.stockPC}
 								</Col>
 							</Row>
+							<hr />
 						</Accordion.Toggle>
 						<Accordion.Collapse eventKey="1">
 							<StockChart
