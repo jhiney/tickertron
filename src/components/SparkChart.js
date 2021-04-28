@@ -3,8 +3,8 @@ import { Line } from "react-chartjs-2";
 import Loading from "./Loading";
 import "./style/Tickerline.css";
 
-export default class StockChart extends Component {
-	static displayName = StockChart.name;
+export default class SparkChart extends Component {
+	static displayName = SparkChart.name;
 
 	constructor(props) {
 		super(props);
@@ -35,45 +35,26 @@ export default class StockChart extends Component {
 				.then((result) => {
 					this.setState({
 						stockPrices: result.c,
-						associatedTimestamp: result.t
+						associatedTimestamp: result.t,
+						loading: false
 					});
 				});
 		}
 	}
-
-	async getRealTime(timestamps) {
-		try {
-			for (var i = 0; i < timestamps.length; i++) {
-				var date = new Date(timestamps[i] * 1000);
-				var dateObject = new Date(date);
-				var humanDateFormat = dateObject.toLocaleTimeString([], {
-					hour: "2-digit",
-					minute: "2-digit"
-				});
-				this.state.realTimes.push(humanDateFormat);
-			}
-
-			this.setState({
-				loading: false
-			});
-		} catch (error) {}
-	}
-
 	async componentDidMount() {
 		await this.getData(this.state.ticker, this.state.todayStart, this.state.currentTime);
-		await this.getRealTime(this.state.associatedTimestamp);
 	}
 
 	render() {
 		const data = {
-			labels: this.state.realTimes,
+			labels: this.state.associatedTimestamp,
 			datasets: [
 				{
 					label: "Price",
 					data: this.state.stockPrices,
 					fill: false,
-					backgroundColor: "rgb(34, 139, 34)",
-					borderColor: "rgb(34, 139, 34)",
+					backgroundColor: "white",
+					borderColor: "white",
 					tension: 0.2,
 					pointRadius: 0
 				}
@@ -81,36 +62,22 @@ export default class StockChart extends Component {
 		};
 
 		const options = {
+			responsive: false,
 			plugins: {
 				legend: {
 					display: false
+				},
+				tooltip: {
+					enabled: false
 				}
 			},
+
 			scales: {
 				yAxis: {
-					beginAtZero: false,
-
-					grid: {
-						color: "transparent",
-						lineWidth: 1
-					},
-					ticks: {
-						color: "rgb(190, 190, 190)",
-						callback: function (value) {
-							return "$" + value;
-						}
-					}
+					display: false
 				},
 				xAxis: {
-					beginAtZero: false,
-
-					grid: {
-						color: "transparent",
-						lineWidth: 1
-					},
-					ticks: {
-						display: false
-					}
+					display: false
 				}
 			}
 		};
@@ -119,9 +86,8 @@ export default class StockChart extends Component {
 				{this.state.loading ? (
 					<Loading />
 				) : (
-					<Line data={data} options={options} width={600} height={100} />
+					<Line data={data} options={options} width={125} height={40} />
 				)}
-				<hr />
 			</div>
 		);
 	}

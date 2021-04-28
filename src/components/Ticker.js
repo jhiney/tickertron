@@ -55,10 +55,13 @@ function Ticker(props) {
 				<Col xl={1} style={{ color: "gray" }}>
 					Ticker
 				</Col>
-				<Col xl={4} style={{ color: "gray" }}>
+				<Col xl={3} style={{ color: "gray" }}>
 					Company
 				</Col>
-				<Col xl={3} style={{ color: "gray" }}>
+				<Col xl={2} style={{ color: "gray" }}>
+					Intraday
+				</Col>
+				<Col xl={2} style={{ color: "gray" }}>
 					Mark
 				</Col>
 				<Col xl={2} style={{ color: "gray" }}>

@@ -1,7 +1,10 @@
 import React from "react";
 import { Card, Col, Row, Accordion } from "react-bootstrap";
+import SparkChart from "./SparkChart";
+
 import StockChart from "./StockChart";
 import "./style/Tickerline.css";
+
 require("dotenv").config();
 
 export default class Tickerline extends React.Component {
@@ -16,7 +19,8 @@ export default class Tickerline extends React.Component {
 			stockPC: "",
 			allTickers: this.props.allTickers,
 			todayStart: this.props.todayStart,
-			currentTime: this.props.currentTime
+			currentTime: this.props.currentTime,
+			gainOrLoss: ""
 		};
 	}
 
@@ -28,7 +32,7 @@ export default class Tickerline extends React.Component {
 				ticker.toUpperCase() +
 				"&token=" +
 				process.env.REACT_APP_MY_KEY;
-			fetch(cs)
+			await fetch(cs)
 				.then((res) => res.json())
 				.then((result) => {
 					this.setState({
@@ -36,6 +40,15 @@ export default class Tickerline extends React.Component {
 						stockPC: result.pc
 					});
 				});
+		}
+		if (this.state.stockPC < this.state.stockPrice) {
+			this.setState({
+				gainOrLoss: true
+			});
+		} else {
+			this.setState({
+				gainOrLoss: false
+			});
 		}
 	}
 	async getName(ticker, tickerlist) {
@@ -72,27 +85,25 @@ export default class Tickerline extends React.Component {
 							<Row xs={1} md={2} lg={2}>
 								<Col xl={1}>{this.state.ticker.toUpperCase()}</Col>
 
-								<Col xl={4} style={{ color: "white" }}>
+								<Col xl={3} style={{ color: "white", fontSize: "99%" }}>
 									{this.state.stockName}
 								</Col>
-
+								<Col xl={2}>
+									<SparkChart
+										tickerToUse={this.state.ticker}
+										todayStart={this.state.todayStart}
+										currentTime={this.state.currentTime}
+									/>
+								</Col>
 								<Col
-									xl={3}
-									style={
-										this.state.stockPC < this.state.stockPrice
-											? { color: "forestgreen" }
-											: { color: "darkred" }
-									}>
+									xl={2}
+									style={this.state.gainOrLoss ? { color: "forestgreen" } : { color: "darkred" }}>
 									${this.state.stockPrice}
 								</Col>
 
 								<Col
 									xl={2}
-									style={
-										this.state.stockPC < this.state.stockPrice
-											? { color: "forestgreen" }
-											: { color: "darkred" }
-									}>
+									style={this.state.gainOrLoss ? { color: "forestgreen" } : { color: "darkred" }}>
 									{PL}%
 								</Col>
 
