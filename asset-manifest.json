@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/tickertron/static/css/main.0feb483c.chunk.css",
-    "main.js": "/tickertron/static/js/main.a72801f5.chunk.js",
-    "main.js.map": "/tickertron/static/js/main.a72801f5.chunk.js.map",
+    "main.js": "/tickertron/static/js/main.dd8e341d.chunk.js",
+    "main.js.map": "/tickertron/static/js/main.dd8e341d.chunk.js.map",
     "runtime-main.js": "/tickertron/static/js/runtime-main.b7a50f1c.js",
     "runtime-main.js.map": "/tickertron/static/js/runtime-main.b7a50f1c.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/tickertron/static/css/2.4c97ca4f.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.4c97ca4f.chunk.css",
     "static/js/2.4c1de32c.chunk.js",
     "static/css/main.0feb483c.chunk.css",
-    "static/js/main.a72801f5.chunk.js"
+    "static/js/main.dd8e341d.chunk.js"
   ]
 }
