@@ -1,11 +1,11 @@
 #ticker-bar {
-  background-color: rgb(30, 30, 30);
+  background-color: rgba(24, 34, 45);
   font-size: 100%;
   /* font-size: 100%;- for the really zoomed in version*/
 }
 
 .navbar {
-  background-color: rgb(30, 30, 30);
+  background-color: rgba(24, 34, 45);
 }
 
 .form-control {
