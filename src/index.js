@@ -9,7 +9,7 @@ ReactDOM.render(
   <React.StrictMode>
      <BrowserRouter>
         <div className="App">
-          <Route path="/" exact component={App} />
+          <Route path="/tickertron" exact component={App} />
         </div>
       </BrowserRouter>
   </React.StrictMode>,
