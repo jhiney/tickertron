@@ -1,6 +1,7 @@
 import { React, useState } from "react";
-import { Navbar, Form, FormControl } from "react-bootstrap";
+import { Navbar, Form, FormControl, NavItem } from "react-bootstrap";
 import "./style/CommandBar.css";
+import TradeClock from "./TradeClock";
 
 function CommandBar(props) {
 	const [ticker, setTicker] = useState("");
@@ -21,7 +22,7 @@ function CommandBar(props) {
 
 	return (
 		<div className="commandBar">
-			<Navbar>
+			<Navbar className="container-fluid">
 				<Form inline onSubmit={handleSubmit} id="tickerForm">
 					<FormControl
 						autoComplete="off"
@@ -34,6 +35,8 @@ function CommandBar(props) {
 						onChange={handleChange}
 					/>
 				</Form>
+				<NavItem className="ml-auto"><TradeClock /></NavItem>
+				
 			</Navbar>
 		</div>
 	);
