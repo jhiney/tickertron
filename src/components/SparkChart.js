@@ -24,7 +24,7 @@ export default class SparkChart extends Component {
 			const cs =
 				"https://finnhub.io/api/v1/stock/candle?symbol=" +
 				ticker.toUpperCase() +
-				"&resolution=1&from=" +
+				"&resolution=15&from=" +
 				today +
 				"&to=" +
 				currentTime +
