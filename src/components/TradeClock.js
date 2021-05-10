@@ -23,10 +23,13 @@ function TradeClock() {
 
 		var nd = new Date(utc + 3600000 * -4);
 
-		if (nd.getHours() > 16 && nd.getMinutes() >= 0) {
+		if (nd.getHours() >= 16 || nd.getHours() <= 6 ) {
 			return false;
 		}
-		if (nd.getHours() > 7 && nd.getMinutes() > 29) {
+		else if (nd.getHours() >= 8) {
+			return true;
+		}
+		else if (nd.getHours() > 7 && nd.getMinutes() >= 30) {
 			return true;
 		} else {
 			return false;
