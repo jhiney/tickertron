@@ -27,7 +27,7 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000/tickertron && electron .\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -11,7 +11,7 @@ function createWindow() {
     show: false,
   });
   const startURL = isDev
-    ? "http://localhost:3000"
+    ? "http://localhost:3000/tickertron"
     : `file://${path.join(__dirname, "../build/index.html")}`;
 
   mainWindow.loadURL(startURL);
