@@ -20,11 +20,15 @@ export default class SparkChart extends Component {
 	}
 
 	async getData(ticker, today, currentTime) {
+		var timeDif = currentTime - today;
+		
 		if (ticker) {
 			const cs =
 				"https://finnhub.io/api/v1/stock/candle?symbol=" +
 				ticker.toUpperCase() +
-				"&resolution=15&from=" +
+				"&resolution=" +
+				(timeDif > 2820 ? "15" : "1") +
+				"&from=" +
 				today +
 				"&to=" +
 				currentTime +
@@ -40,6 +44,7 @@ export default class SparkChart extends Component {
 					});
 				});
 		}
+		console.log(timeDif)
 	}
 	async componentDidMount() {
 		await this.getData(this.state.ticker, this.state.todayStart, this.state.currentTime);
