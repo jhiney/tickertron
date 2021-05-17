@@ -7,7 +7,7 @@ Tickertron is a simple browser-based stock watcher that displays stock market pr
 ## Quick Start
 Open [http://jhiney.dev/tickertron](http://jhiney.dev/tickertron) to view tickertron in the browser.
 
-Pressing `/` will activate Tickertron. Type in your favorite ticker(s) to see the intraday trend, current price, % Gain/Loss and previous close. Clicking an indivdual ticker will bring up a minute-by-minute chart of intraday price changes.
+`/` will activate Tickertron. Type in your favorite ticker(s) to see the intraday trend, current price, % Gain/Loss and previous close. Clicking an indivdual ticker will bring up a minute-by-minute chart of intraday price changes.
 
 ## Electron
 Originally, Tickertron was conceived as an [Electron](https://www.electronjs.org/) app, however viewing in the browser quickly became the perfered method of viewing the app.
