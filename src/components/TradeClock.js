@@ -2,7 +2,7 @@ import React from "react";
 import "./style/CommandBar.css";
 
 function TradeClock() {
-	const getTime = () => {
+	const currentNYTime = () => {
 		var d = new Date();
 
 		var utc = d.getTime() + d.getTimezoneOffset() * 60000;
@@ -36,7 +36,7 @@ function TradeClock() {
 
 	return (
 		<div className="clock" style={marketOpen() ? { color: "forestgreen" } : { color: "darkred" }}>
-			NYSE: {marketOpen() ? getTime() + " OPEN" : "CLOSED"}
+			NYSE: {marketOpen() ? currentNYTime() + " OPEN" : "CLOSED"}
 		</div>
 	);
 }
