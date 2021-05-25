@@ -36,7 +36,7 @@ function TradeClock() {
 
 	return (
 		<div className="clock" style={marketOpen() ? { color: "forestgreen" } : { color: "darkred" }}>
-			NYSE: {marketOpen() ? getTime()+" OPEN" : "CLOSED"}
+			NYSE: {marketOpen() ? getTime() + " OPEN" : "CLOSED"}
 		</div>
 	);
 }

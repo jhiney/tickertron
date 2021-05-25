@@ -9,7 +9,7 @@ function App() {
 	const [listOfTicker, setlistOfTicker] = useState([]);
 
 	const handleCallback = (commandBarData) => {
-    //take the commandBarData and append it to the listOfTicker
+		//take the commandBarData and append it to the listOfTicker
 		setlistOfTicker([...listOfTicker, commandBarData.ticker]);
 	};
 

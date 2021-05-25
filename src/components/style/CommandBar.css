@@ -1,38 +1,45 @@
 #ticker-bar {
-  background-color: rgba(24, 34, 45);
-  font-size: 100%;
-  /* font-size: 100%;- for the really zoomed in version*/
+	background-color: rgba(24, 34, 45);
+	font-size: 100%;
+	/* font-size: 100%;- for the really zoomed in version*/
 }
 
 .navbar {
-  background-color: rgba(24, 34, 45);
+	background-color: rgba(24, 34, 45);
 }
 
 .form-control {
-  background-color: transparent;
-  border: transparent;
-  outline-width: 0px;
+	background-color: transparent;
+	border: transparent;
+	outline-width: 0px;
 }
 
 .form-control::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white;
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: white;
 }
 .form-control:focus::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bolder;
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	background: linear-gradient(
+		330deg,
+		#e05252 0%,
+		#99e052 25%,
+		#52e0e0 50%,
+		#9952e0 75%,
+		#e05252 100%
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: bolder;
 }
 
 .form-control:focus {
-  background-color: transparent;
-  color: white;
-  box-shadow: none;
+	background-color: transparent;
+	color: white;
+	box-shadow: none;
 }
 
 .clock {
-  padding-right: 4.4rem;
+	padding-right: 4.4rem;
 }

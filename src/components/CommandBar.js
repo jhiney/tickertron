@@ -3,10 +3,8 @@ import { Navbar, Form, FormControl, NavItem } from "react-bootstrap";
 import "./style/CommandBar.css";
 import TradeClock from "./TradeClock";
 
-
 function CommandBar(props) {
 	const [ticker, setTicker] = useState("");
-	
 
 	const handleChange = (event) => {
 		setTicker({ ticker: event.target.value });
@@ -36,12 +34,10 @@ function CommandBar(props) {
 						value={ticker.value}
 						onChange={handleChange}
 					/>
-					
 				</Form>
 				<NavItem className="ml-auto">
 					<TradeClock />
 				</NavItem>
-				
 			</Navbar>
 		</div>
 	);
