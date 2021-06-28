@@ -4,16 +4,16 @@ export default class FileDialogue extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// Initially, no file is selected
 			selectedFile: null
 		};
 	}
 
 	// On file select
-	onFileChange = (event) => {
+	onFileSelect = (event) => {
 		this.setState({ selectedFile: event.target.files[0] });
 	};
 
+	//if you want to display the file data
 	fileData = () => {
 		if (this.state.selectedFile) {
 			return (
@@ -33,13 +33,18 @@ export default class FileDialogue extends React.Component {
 		}
 	};
 
+  
+	onFileUpload = () => {
+		this.props.fileCallback(this.state.selectedFile.name);
+	};
+
 	render() {
 		return (
 			<div>
 				<div>
-					<input type="file" onChange={this.onFileChange} />
+					<input type="file" onChange={this.onFileSelect} />
+					<button onClick={this.onFileUpload}>Upload!</button>
 				</div>
-				{this.fileData()}
 			</div>
 		);
 	}
