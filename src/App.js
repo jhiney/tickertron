@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Ticker from "./components/Ticker";
 import CommandBar from "./components/CommandBar";
 import FooterBar from "./components/FooterBar";
+import FileDialogue from "./components/FileDialogue";
 
 function App() {
 	//const [ticker, setTicker] = useState('');
@@ -20,6 +21,7 @@ function App() {
 				//key={tickerlist} ---- uncomment this if you want every line to reload on submit, otherwise it'll just load a new ticker below the current one
 				tickerlist={listOfTicker}
 			/>
+			<FileDialogue />
 			<FooterBar />
 		</div>
 	);
