@@ -43,7 +43,8 @@ export default class FileDialogue extends React.Component {
 			<div>
 				<div>
 					<input type="file" onChange={this.onFileSelect} />
-					<button onClick={this.onFileUpload}>Upload!</button>
+					<button onClick={this.onFileUpload}>updoot</button>
+					{this.fileData()}
 				</div>
 			</div>
 		);
