@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/tickertron/static/css/main.7c170a42.chunk.css",
-    "main.js": "/tickertron/static/js/main.16357938.chunk.js",
-    "main.js.map": "/tickertron/static/js/main.16357938.chunk.js.map",
+    "main.js": "/tickertron/static/js/main.558974ae.chunk.js",
+    "main.js.map": "/tickertron/static/js/main.558974ae.chunk.js.map",
     "runtime-main.js": "/tickertron/static/js/runtime-main.b7a50f1c.js",
     "runtime-main.js.map": "/tickertron/static/js/runtime-main.b7a50f1c.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/tickertron/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.1cfa92ea.chunk.js": "/tickertron/static/js/2.1cfa92ea.chunk.js",
-    "static/js/2.1cfa92ea.chunk.js.map": "/tickertron/static/js/2.1cfa92ea.chunk.js.map",
+    "static/js/2.b9b4cf4e.chunk.js": "/tickertron/static/js/2.b9b4cf4e.chunk.js",
+    "static/js/2.b9b4cf4e.chunk.js.map": "/tickertron/static/js/2.b9b4cf4e.chunk.js.map",
     "index.html": "/tickertron/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/tickertron/static/css/2.4c97ca4f.chunk.css.map",
     "static/css/main.7c170a42.chunk.css.map": "/tickertron/static/css/main.7c170a42.chunk.css.map",
-    "static/js/2.1cfa92ea.chunk.js.LICENSE.txt": "/tickertron/static/js/2.1cfa92ea.chunk.js.LICENSE.txt"
+    "static/js/2.b9b4cf4e.chunk.js.LICENSE.txt": "/tickertron/static/js/2.b9b4cf4e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b7a50f1c.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.1cfa92ea.chunk.js",
+    "static/js/2.b9b4cf4e.chunk.js",
     "static/css/main.7c170a42.chunk.css",
-    "static/js/main.16357938.chunk.js"
+    "static/js/main.558974ae.chunk.js"
   ]
 }
