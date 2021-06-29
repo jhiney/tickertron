@@ -44,7 +44,6 @@ export default class SparkChart extends Component {
 					});
 				});
 		}
-		console.log(timeDif);
 	}
 	async componentDidMount() {
 		await this.getData(this.state.ticker, this.state.todayStart, this.state.currentTime);
