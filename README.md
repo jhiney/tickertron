@@ -17,7 +17,8 @@ As such, the electron folder remains. Cloning this repo and runnning `npm instal
 
 ## Future Improvements
 - [ ] Autocomplete Tickers
-- [ ] Showing previous trading day data if no current data is available
+- [x] Showing previous trading day data if no current data is available
+- [x] Commma-seperated tickers
 - [ ] Real-time data option
 - [ ] Exchange holiday recognition
 - [ ] Crypto tickers
