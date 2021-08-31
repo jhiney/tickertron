@@ -1,6 +1,6 @@
 # tickertron
 
-Tickertron is a simple browser-based stock watcher that displays stock market price information without the information overload of tradition stock watchers. Made with [React](https://reactjs.org/), [finnhub.io](https://finnhub.io/), and [react-bootsrap](https://react-bootstrap.github.io/).
+Tickertron is a simple browser-based stock watcher that displays stock market price information without the information overload of traditional stock watchers. Made with [React](https://reactjs.org/), [finnhub.io](https://finnhub.io/), and [react-bootsrap](https://react-bootstrap.github.io/).
 
 ![GitHub Logo](/public/tickertronexample.png)
 
