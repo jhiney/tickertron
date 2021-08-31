@@ -25,9 +25,9 @@ function TradeClock() {
 
 		if (nd.getHours() >= 16 || nd.getHours() <= 6) {
 			return false;
-		} else if (nd.getHours() > 8) {
+		} else if (nd.getHours() > 9) {
 			return true;
-		} else if (nd.getHours() >= 8 && nd.getMinutes() >= 30) {
+		} else if (nd.getHours() >= 9 && nd.getMinutes() >= 30) {
 			return true;
 		} else {
 			return false;
