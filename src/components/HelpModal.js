@@ -26,7 +26,7 @@ export default function HelpModal() {
 						entered tickers.
 					</p>
 					<p>
-						Adding multiple tickers at a single time may be down with comma-seperated tickers.
+						Adding multiple tickers at a single time may be done with comma-seperated tickers.
 						Example: "aapl,msft,gs,net" will add Apple, Microsoft, Goldman Sachs, and Cloudflare.
 					</p>
 				</Modal.Body>
