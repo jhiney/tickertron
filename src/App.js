@@ -19,10 +19,6 @@ function App() {
 		} else setlistOfTicker([...listOfTicker, commandBarData.ticker]);
 	};
 
-	/*const handleFileCallback = (fileData) => {
-		setFile(fileData);
-	};*/
-
 	return (
 		<div>
 			<CommandBar tickerCallback={handleCallback} />
@@ -30,8 +26,6 @@ function App() {
 				//key={tickerlist} ---- uncomment this if you want every line to reload on submit, otherwise it'll just load a new ticker below the current one
 				tickerlist={listOfTicker}
 			/>
-			{/*<FileDialogue fileCallback={handleFileCallback} />
-			{file}*/}
 			<FooterBar />
 		</div>
 	);

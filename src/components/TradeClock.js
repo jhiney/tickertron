@@ -34,7 +34,7 @@ function TradeClock() {
 		}
 	};
 	
-	//TODO: Time til open calc
+	/*TODO: Time til open calc
 	const timeTillOpen = () => {
 		var initDate = new Date();
 
@@ -42,12 +42,13 @@ function TradeClock() {
 		
 		return open;
 	}
+	*/
 
 	return (
 		<div className="clock" style={marketOpen() ? { color: "forestgreen" } : { color: "darkred" }}>
 			NYSE: {marketOpen() ? currentNYTime() + " OPEN" : "CLOSED"}
 		
-		{timeTillOpen()}
+		{/*timeTillOpen()*/}
 		</div>
 	);
 }
