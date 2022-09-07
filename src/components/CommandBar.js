@@ -4,6 +4,7 @@ import "./style/CommandBar.css";
 import TradeClock from "./TradeClock";
 
 function CommandBar(props) {
+	//ticker is the const, setTicker changes ticker, useState is the inital value of ticker
 	const [ticker, setTicker] = useState("");
 
 	const handleChange = (event) => {

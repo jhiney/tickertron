@@ -36,8 +36,8 @@ export default class StockChart extends Component {
 					this.setState({
 						stockPrices: result.c,
 						associatedTimestamp: result.t
-					});
-				});
+					})
+				})
 		}
 	}
 
