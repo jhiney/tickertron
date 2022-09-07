@@ -29,6 +29,9 @@ export default function HelpModal() {
 						Adding multiple tickers at a single time may be done with comma-seperated tickers.
 						Example: "aapl,msft,gs,net" will add Apple, Microsoft, Goldman Sachs, and Cloudflare.
 					</p>
+					<p>
+						Clicking a ticker line will open a graph of the current day's intraday activity.
+					</p>
 				</Modal.Body>
 			</Modal>
 		</>
