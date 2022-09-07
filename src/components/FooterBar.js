@@ -2,6 +2,8 @@ import React from "react";
 import { Navbar } from "react-bootstrap";
 import "./style/FooterBar.css";
 import ghLogo from "./img/github-logo-32.png";
+import HelpModal from "./HelpModal";
+
 
 function Footerbar() {
 	return (
@@ -16,6 +18,7 @@ function Footerbar() {
 						alt="GitHub logo"
 					/>
 				</Navbar.Brand>
+				<HelpModal />
 			</Navbar>
 		</div>
 	);
